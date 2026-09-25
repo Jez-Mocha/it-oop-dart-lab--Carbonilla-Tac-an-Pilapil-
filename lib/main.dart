@@ -41,7 +41,14 @@ class Teacher extends Person {
     return "Hi, I'm $name, $age years old, teaching $_subject.";
   }
 }
+class Staff extends Person {
+  Staff(String name, int age) : super(name, age);
 
+  @override
+  String introduce() {
+    return "Hi, I'm $name, $age years old, staff.";
+  }
+}
 class School {
   List<Person> people = [];
 
@@ -110,6 +117,14 @@ void main() {
 
     school.addPerson(Teacher(name, age, subject));
   }
+  int staffCount = readInt("\nHow many staff will you add? ");
 
+  for (int i = 1; i <= staffCount; i++) {
+    print("\n-- Staff #$i --");
+    String name = readText("Name: ");
+    int age = readInt("Age: ");
+
+    school.addPerson(Staff(name, age,));
   school.introduceAll();
+}
 }
